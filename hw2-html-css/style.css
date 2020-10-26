@@ -1,0 +1,54 @@
+.outer-content {
+  align-items: center;
+  background-color: pink;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: left;
+  margin-top: 20px;
+  width: 75%;
+}
+
+.inner-content {
+  background-color: lightblue;
+  text-align: center;
+  width: 75%;
+}
+
+.border {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 8px;
+}
+
+.border td,
+.border th {
+  border: 1px solid black;
+  margin: 2px;
+  padding: 5px;
+}
+
+.radio-input {
+  margin: 8px;
+}
+
+.button {
+  margin: 5px;
+  margin-top: 8px;
+}
+
+table tbody tr:nth-of-type(2n + 1) {
+  background-color: lime;
+}
+
+table tbody tr:nth-of-type(2n) {
+  background-color: skyblue;
+}
+
+table tbody tr td:nth-of-type(2) {
+  color: red;
+}
+
+table tbody tr td:nth-of-type(4) {
+  color: blue;
+}

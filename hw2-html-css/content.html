@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CS290 - HW2: HTML/CSS</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <table class="border">
+      <caption>Doggy Day Care Report</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Mood</th>
+          <th>Activity</th>
+          <th>Appetite</th>
+          <th>BMs</th>
+          <th>Problem Behaviors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><em>Darby</em></td>
+          <td>Happy</td>
+          <td>Playing Fetch</td>
+          <td>Healthy</td>
+          <td>2</td>
+          <td>Digging Holes</td>
+        </tr>
+        <tr>
+          <td><em>Clover</em></td>
+          <td>Depressed</td>
+          <td>Moping on the Couch</td>
+          <td>Over</td>
+          <td>3</td>
+          <td>Getting into Trash</td>
+        </tr>
+        <tr>
+          <td><em>Buster</em></td>
+          <td>Anxious</td>
+          <td>Looking out the Window</td>
+          <td>Low</td>
+          <td>1</td>
+          <td>Barking</td>
+        </tr>
+        <tr>
+          <td><em>Kona</em></td>
+          <td>Playful</td>
+          <td>Chewing on Toys</td>
+          <td>Healthy</td>
+          <td>2</td>
+          <td>Chasing a Skunk</td>
+        </tr>
+        <tr>
+          <td><em>Whiskey</em></td>
+          <td>Relaxed</td>
+          <td>Watching Birds on TV</td>
+          <td>Healthy</td>
+          <td>4</td>
+          <td>Peeing in the House</td>
+        </tr>
+        <tfoot>
+          <tr>
+          <td colspan="2">Footer 1</td>
+          <td colspan="4">Footer 2</td></tr>
+        </tfoot>
+      </tbody>
+    </table>
+    <dl>
+      <dt>Id</dt>
+      <dd>097463THJ210</dd>
+      <dt>Created At</dt>
+      <dd>2020-10-10T4:15:02</dd>
+      <dt>Is Complete</dt>
+      <dd>True</dd>
+    </dl>
+    <div class="outer-content">
+      <div class="inner-content">May the force be with you</div>
+    </div>
+    <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="get">
+      <fieldset>
+        <legend>Some GET data</legend>
+        <div class="border">
+          <label for="text-input">Text here:</label>
+            <input type="text" name="text-input"/>
+        </div>
+        <div class="border">
+          <label for="numerical-input">Number here:</label>
+            <input type="number" name="numerical-input"/>
+        </div>
+        <div class="border">       
+          <label for="password-input">Password here:</label>
+            <input  type="password" name="password-input"/>
+        </div>
+        <div class="border">
+          <label for="candy">Select between:</label>
+          </br>
+          <input class="radio-input" type="radio" name="candy">Snickers
+          </br>
+          <input class="radio-input" type="radio" name="candy">Skittles
+          </br>
+          <input class="radio-input" type="radio" name="candy">Mentos
+          </br>        
+          <input class="button" type="submit" value="Submit form" />
+        </div>
+      </fieldset>
+    </form>
+    <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post">
+      <fieldset>
+        <legend>Some POST data</legend>
+        <div class="border">
+          <label for="text-input">Text here:</label>
+            <input type="text" name="text-input">
+        </div>
+        <div class="border">
+          <label for="numerical-input">Number here:</label>
+            <input type="number" name="numerical-input">
+        </div>
+        <div class="border">       
+          <label for="password-input">Password here:</label>
+            <input type="password" name="password-input">
+        </div>
+        <div class="border">
+          <label for="candy">Select between:</label>
+          </br>
+          <input class="radio-input" type="radio" name="candy">Snickers
+          </br>
+          <input class="radio-input" type="radio" name="candy">Skittles
+          </br>
+          <input class="radio-input" type="radio" name="candy">Mentos
+          </br>        
+          <input class="button" type="submit" value="Submit form">
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
