@@ -1,0 +1,20 @@
+{
+  "name": "web_dev_CS290",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a4-fixing-closure-loop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelley-sharp/web-dev-osu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelley-sharp/web-dev-osu/issues"
+  },
+  "homepage": "https://github.com/kelley-sharp/web-dev-osu#readme"
+}
