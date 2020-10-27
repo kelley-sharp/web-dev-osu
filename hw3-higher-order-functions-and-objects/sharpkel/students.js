@@ -108,7 +108,7 @@ function clubComparator(student1, student2) {
       return false;
     }
   } else {
-    // finally, when the students' clubs are different from each other and are in bestClubs
+    // finally, when the students' clubs are different from each other
     if (student1ClubRank > student2ClubRank) {
       return true;
     } else {
