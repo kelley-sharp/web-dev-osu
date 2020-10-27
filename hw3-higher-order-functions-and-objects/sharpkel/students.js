@@ -86,17 +86,35 @@ to "least" is as follows: improv, cat, art, guitar, (types not otherwise listed)
 It should be case insensitive. If two clubs are of equal type then the student who
 has the higher year in school should be "greater."*/
 function clubComparator(student1, student2) {
-  if (student1.club == student2.club){
-    if (student1.yearInSchool > student2.yearInSchool){
+  var bestClubs = ["improv", "cat", "art", "guitar"];
+
+  var student1ClubRank = bestClubs.indexOf(student1.club.toLowerCase());
+  var student2ClubRank = bestClubs.indexOf(student2.club.toLowerCase());
+
+  // if the club is not found in 'bestClubs' then give it a very high index
+  // since the lowest index is the greatest rank
+  if (student1ClubRank === -1) {
+    student1ClubRank = bestClubs.length;
+  }
+  if (student2ClubRank === -1) {
+    student2ClubRank = bestClubs.length;
+  }
+
+  // if they are in the same type of club, the one with more years in school is listed first
+  if (student1ClubRank === student2ClubRank) {
+    if (student1.yearInSchool < student2.yearInSchool) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    // finally, when the students' clubs are different from each other and are in bestClubs
+    if (student1ClubRank > student2ClubRank) {
       return true;
     } else {
       return false;
     }
   }
-  
-  var student1Rank;
-  var student2Rank;
-  
 }
 
 /* Your program should output the following to the console.log, including each of the opening and closing 
@@ -135,13 +153,13 @@ Jim - Sports Science - 2 - Guitar
 console.log("**********" + "\n" + "The students sorted by year in school are:");
 sortedByYear = sortArr(yearComparator, students);
 for (var i = 0; i < sortedByYear.length; i++) {
-  console.log(sortedByYear[i].logMe(false));
+  sortedByYear[i].logMe(false);
 }
 
 console.log("\n" + "**********" + "\n" + "The students sorted by major are:");
 sortedByMajor = sortArr(majorComparator, students);
 for (var i = 0; i < sortedByMajor.length; i++) {
-  console.log(sortedByMajor[i].logMe(false));
+  sortedByMajor[i].logMe(false);
 }
 
 console.log(
@@ -149,8 +167,5 @@ console.log(
 );
 sortedByClub = sortArr(clubComparator, students);
 for (var i = 0; i < sortedByClub.length; i++) {
-  var bestClubs = ["improv", "cat", "art", "guitar"];
-  if (bestClubs.includes(sortedByClub[i]) {
-    console.log(sortedByClub[i].logMe(true));
-  }
+  sortedByClub[i].logMe(true);
 }
