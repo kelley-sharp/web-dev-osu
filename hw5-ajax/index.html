@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SharpKel - A5 - Ajax Interactions</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="city-name">CITY NAME:</label>
+        <input id="city-name" type="text" name="city-name" optional />
+        <label for="zip-code">ZIP CODE:</label>
+        <input id="zip-code" type="text" name="zip-code" optional />
+        <label for="country-code">COUNTRY CODE:</label>
+        <input id="country-code" type="text" name="country-code" required />
+        <button id="button-to-get-weather">Make GET request</button>
+        <h4 id="weather-result-header">
+          < Your weather results will display here >
+        </h4>
+      </div>
+    </form>
+    <form>
+      <div>
+        <label for="some-text">SOME TEXT:</label>
+        <textarea id="some-text" name="some-text" rows="1" cols="33"></textarea>
+        <button id="button-to-post-some-text">Make POST request</button>
+        <h4 id="post-content-result-header">
+          < Your POST request content will display here >
+        </h4>
+      </div>
+    </form>
+    <script src="./script.js"></script>
+  </body>
+</html>
