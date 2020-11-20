@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/kelley-sharp/web-dev-osu/issues"
   },
-  "homepage": "https://github.com/kelley-sharp/web-dev-osu#readme"
+  "homepage": "https://github.com/kelley-sharp/web-dev-osu#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
