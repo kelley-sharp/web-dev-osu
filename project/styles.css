@@ -1,74 +1,18 @@
-.carousel-wrapper {
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 90%;
-}
-
-.carousel {
-  transform-style: preserve-3d;
-}
-
-.carousel__photo {
-  opacity: 0;
-  position: absolute;
-  top: 0;
+html,
+body {
+  height: 100%;
   width: 100%;
-  margin: auto;
-  padding: 1rem 4rem;
-  z-index: 100;
-  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+  margin: 0;
 }
 
-.carousel__photo.initial,
-.carousel__photo.active {
-  opacity: 1;
-  position: relative;
-  z-index: 900;
+.carousel-wrapper {
+  width: 600px;
 }
 
-.carousel__photo.back,
-.carousel__photo.forward {
-  z-index: 800;
-}
-.carousel__photo.back {
-  transform: translateX(-100%); /* Move 'back' item to the left */
-}
-.carousel__photo.forward {
-  transform: translateX(100%); /* Move 'forward' item to the right */
+.carousel-item {
+  max-height: 450px;
 }
 
-#carousel__button--back,
-#carousel__button--forward {
-  position: absolute;
-  top: 50%;
-  width: 3rem;
-  height: 3rem;
-  background-color: #fff;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1001; /* Sit on top of everything */
-  border: 1px solid black;
-}
-#carousel__button--back {
-  left: 0;
-}
-#carousel__button--forward {
-  right: 0;
-}
-#carousel__button--back::after,
-#carousel__button--forward::after {
-  content: " ";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 50%;
-  left: 54%;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-#carousel__button--forward::after {
-  left: 47%;
-  transform: translate(-50%, -50%) rotate(-45deg);
+.carousel-item img {
+  max-height: 450px;
 }
