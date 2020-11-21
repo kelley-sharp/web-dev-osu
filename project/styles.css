@@ -37,8 +37,8 @@
   transform: translateX(100%); /* Move 'forward' item to the right */
 }
 
-.carousel__button--back,
-.carousel__button--forward {
+#carousel__button--back,
+#carousel__button--forward {
   position: absolute;
   top: 50%;
   width: 3rem;
@@ -50,14 +50,14 @@
   z-index: 1001; /* Sit on top of everything */
   border: 1px solid black;
 }
-.carousel__button--back {
+#carousel__button--back {
   left: 0;
 }
-.carousel__button--forward {
+#carousel__button--forward {
   right: 0;
 }
-.carousel__button--back::after,
-.carousel__button--forward::after {
+#carousel__button--back::after,
+#carousel__button--forward::after {
   content: " ";
   position: absolute;
   width: 10px;
@@ -68,7 +68,7 @@
   border-bottom: 2px solid black;
   transform: translate(-50%, -50%) rotate(135deg);
 }
-.carousel__button--forward::after {
+#carousel__button--forward::after {
   left: 47%;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
