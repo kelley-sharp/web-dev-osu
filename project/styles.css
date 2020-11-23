@@ -26,3 +26,15 @@ form {
   top: 100;
   left: 90;
 }
+
+.media img {
+  max-height: 200px;
+}
+
+.media:nth-child(2n + 1) {
+  order: 2;
+}
+
+.store_item img {
+  max-height: 300px;
+}
