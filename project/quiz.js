@@ -21,7 +21,7 @@ const questions = [
       {
         text: "In the Temperate forest",
         id: "1.4",
-        weights: { addax: 1, panda: 5, baboon: 1, bear: 1, bat: 0 },
+        weights: { addax: 1, panda: 5, baboon: 2, bear: 2, bat: 0 },
       },
     ],
   },
@@ -106,6 +106,74 @@ const questions = [
   },
 ];
 
+function submitQuiz(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  // post the chosen weights for each question, e.g.
+  /**
+   {
+     "responses": [
+        { addax: 2, panda: 3, baboon: 1, bear: 5, bat: 4 },
+        { addax: 5, panda: 5, baboon: 4, bear: 1, bat: 0 },
+        { addax: 1, panda: 0, baboon: 4, bear: 0, bat: 5 }
+        { addax: 4, panda: 5, baboon: 0, bear: 0, bat: 3 }
+     ]
+   }
+   */
+  const responses = questions.map((question) => {
+    const questionOptionId = document.querySelector(
+      `input[name="${question.id}"]:checked`
+    ).value;
+    return question.options.find((option) => option.id === questionOptionId)
+      .weights;
+  });
+
+  const reqBody = { responses };
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+  const quizForm = document.querySelector("#quiz");
+  quizForm.addEventListener("submit", submitQuiz);
   console.log("DOM fully loaded and parsed");
+  for (const question of questions) {
+    const questionContainer = document.createElement("div");
+    questionContainer.id = `question-${question.id}`;
+
+    const questionText = document.createElement("h3");
+    questionText.innerHTML = question.text;
+    questionText.classList.add("mt-3");
+    questionContainer.appendChild(questionText);
+
+    const optionsContainer = document.createElement("div");
+    optionsContainer.classList.add("mt-2");
+
+    for (const option of question.options) {
+      const optionContainer = document.createElement("div");
+      optionContainer.classList.add("form-check");
+      const radioInput = document.createElement("input");
+      radioInput.type = "radio";
+      radioInput.name = question.id;
+      radioInput.id = option.id;
+      radioInput.value = option.id;
+      radioInput.required = true;
+      radioInput.classList.add("form-check-input");
+      optionContainer.appendChild(radioInput);
+
+      const radioLabel = document.createElement("label");
+      radioLabel.setAttribute("for", option.id);
+      radioLabel.classList.add("form-check-label");
+      radioLabel.innerHTML = option.text;
+      optionContainer.appendChild(radioLabel);
+
+      optionsContainer.appendChild(optionContainer);
+    }
+    questionContainer.appendChild(optionsContainer);
+    quizForm.appendChild(questionContainer);
+  }
+  // submit button
+  const submitButton = document.createElement("button");
+  submitButton.classList.add("btn", "btn-primary", "mt-4");
+  submitButton.innerHTML = "See your animal";
+  quizForm.appendChild(submitButton);
 });

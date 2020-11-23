@@ -17,16 +17,6 @@ body {
   max-height: 450px;
 }
 
-form {
-  height: 85%;
-  width: 50%;
-}
-
-.btn-position {
-  top: 100;
-  left: 90;
-}
-
 .media img {
   max-height: 200px;
 }
