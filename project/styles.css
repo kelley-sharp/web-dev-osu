@@ -28,3 +28,7 @@ body {
 .store_item img {
   max-height: 300px;
 }
+
+img {
+  max-width: 100%;
+}

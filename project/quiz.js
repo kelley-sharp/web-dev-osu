@@ -14,12 +14,12 @@ const questions = [
         weights: { addax: 3, panda: 4, baboon: 1, bear: 0, bat: 5 },
       },
       {
-        text: "In the Desert (warm and dry)",
+        text: "In the desert (warm and dry)",
         id: "1.3",
         weights: { addax: 5, panda: 0, baboon: 4, bear: 0, bat: 1 },
       },
       {
-        text: "In the Temperate forest",
+        text: "In the temperate forest",
         id: "1.4",
         weights: { addax: 1, panda: 5, baboon: 2, bear: 2, bat: 0 },
       },
@@ -40,7 +40,7 @@ const questions = [
         weights: { addax: 0, panda: 1, baboon: 2, bear: 5, bat: 0 },
       },
       {
-        text: "Flowers, Fruits, and/or Nectar",
+        text: "Flowers, fruits, and/or nectar",
         id: "2.3",
         weights: { addax: 0, panda: 2, baboon: 3, bear: 1, bat: 5 },
       },
@@ -98,7 +98,7 @@ const questions = [
         weights: { addax: 1, panda: 1, baboon: 0, bear: 0, bat: 4 },
       },
       {
-        text: "sleep all day, active only at night",
+        text: "Sleep all day, active only at night",
         id: "4.4",
         weights: { addax: 5, panda: 4, baboon: 0, bear: 0, bat: 3 },
       },
@@ -133,11 +133,12 @@ function submitQuiz(event) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  const quizForm = document.querySelector("#quiz");
+  const quizForm = document.querySelector("#quiz-content");
   quizForm.addEventListener("submit", submitQuiz);
   console.log("DOM fully loaded and parsed");
   for (const question of questions) {
     const questionContainer = document.createElement("div");
+    questionContainer.classList.add("mb-4");
     questionContainer.id = `question-${question.id}`;
 
     const questionText = document.createElement("h3");
@@ -172,8 +173,12 @@ window.addEventListener("DOMContentLoaded", () => {
     quizForm.appendChild(questionContainer);
   }
   // submit button
+  const submitButtonContainer = document.createElement("div");
+  submitButtonContainer.classList.add("d-flex", "justify-content-center");
   const submitButton = document.createElement("button");
-  submitButton.classList.add("btn", "btn-primary", "mt-4");
+  submitButton.classList.add("btn", "btn-primary", "mt-3");
+  submitButton.classList.add("align-self-center");
   submitButton.innerHTML = "See your animal";
-  quizForm.appendChild(submitButton);
+  submitButtonContainer.appendChild(submitButton);
+  quizForm.appendChild(submitButtonContainer);
 });
