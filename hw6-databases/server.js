@@ -104,16 +104,6 @@ app.delete("/workouts/:id", function (req, res) {
   );
 });
 
-app.use(function (req, res) {
-  res.status(404).json({ error: "Route not found " + req.route });
-});
-
-app.use(function (err, req, res, next) {
-  res.status(500).json({
-    error: err.message,
-  });
-});
-
 app.get("/reset-table", function (req, res, next) {
   mysql.pool.query("DROP TABLE IF EXISTS workouts", function (err) {
     //replace your connection pool with the your variable containing the connection pool
@@ -128,6 +118,16 @@ app.get("/reset-table", function (req, res, next) {
     mysql.pool.query(createString, function (err) {
       res.render("home", { workouts: [] });
     });
+  });
+});
+
+app.use(function (req, res) {
+  res.status(404).json({ error: "Route not found " + req.route });
+});
+
+app.use(function (err, req, res, next) {
+  res.status(500).json({
+    error: err.message,
   });
 });
 
