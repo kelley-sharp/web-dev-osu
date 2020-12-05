@@ -38,9 +38,9 @@ const pool = mysql.createPool({
 app.get("/", function (req, res, next) {
   mysql.pool.query("SELECT * FROM workouts", function (err, rows, fields) {
     if (err) {
-      res.render('home', { workouts: []})
+      res.render("home", { workouts: [] });
     }
-    res.render("home", { workouts: rows }));
+    res.render("home", { workouts: rows });
   });
 });
 
