@@ -1,5 +1,6 @@
 const Handlebars = require("handlebars");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 8555;
 const handlebars = require("express-handlebars").create({
@@ -9,6 +10,7 @@ app.use(express.json());
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
+app.use(cors());
 
 const mysql = require("mysql");
 const pool = mysql.createPool({
