@@ -62,7 +62,7 @@ app.post("/workouts", function (req, res, next) {
         return;
       }
       res.status(201).json({
-        workout: result[0],
+        workout: Object.assign({}, workout, { id: result.insertId }),
       });
     }
   );
@@ -88,7 +88,7 @@ app.put("/workouts/:id", function (req, res, next) {
         return;
       }
       res.json({
-        workout: result[0],
+        workout,
       });
     }
   );
