@@ -14,10 +14,11 @@ app.use(cors());
 
 const mysql = require("mysql");
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "student",
-  password: "default",
-  database: "student",
+  connectionLimit: 10,
+  host: "classmysql.engr.oregonstate.edu",
+  user: "cs290_sharpkel",
+  password: "8555",
+  database: "cs290_sharpkel",
 });
 
 // DUMMY TEST DATA
