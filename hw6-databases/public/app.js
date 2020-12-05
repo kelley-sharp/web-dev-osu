@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         });
+        workoutIdHiddenInput.value = workoutId;
       } else if (event.target.classList.contains("delete")) {
         const xhr = new XMLHttpRequest();
         xhr.open("DELETE", `/workouts/${workoutId}`, true);
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     // get the ID from the hidden input
-    const workoutId = workoutIdHiddenInput.id;
+    const workoutId = workoutIdHiddenInput.value;
 
     const reqBody = {
       name: nameInput.value,
@@ -75,8 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (workoutId === "new-workout") {
-      console.log("POST");
-      console.log(reqBody);
       // do a post request
       const xhr = new XMLHttpRequest();
       xhr.open("POST", "/workouts", true);
@@ -136,7 +135,46 @@ document.addEventListener("DOMContentLoaded", function () {
       };
       xhr.send(JSON.stringify(reqBody));
     } else {
-      // do a patch request
+      const xhr = new XMLHttpRequest();
+      xhr.open("PUT", `/workouts/${workoutId}`, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          event.target.reset();
+          const parsedResponse = JSON.parse(xhr.response);
+          const workout = parsedResponse.workout;
+          const workoutRow = document.getElementById(workoutId);
+          console.log(workoutRow);
+          workoutRow.childNodes.forEach((child) => {
+            if (child.nodeType !== 3) {
+              const childClass = child.className;
+              switch (childClass) {
+                case "name": {
+                  child.innerHTML = workout.name;
+                  break;
+                }
+                case "date": {
+                  child.innerHTML = workout.date;
+                  break;
+                }
+                case "reps": {
+                  child.innerHTML = workout.reps;
+                  break;
+                }
+                case "weight": {
+                  child.innerHTML = workout.weight;
+                  break;
+                }
+                case "unit": {
+                  child.innerHTML = workout.unit;
+                  break;
+                }
+              }
+            }
+          });
+        }
+      };
+      xhr.send(JSON.stringify(reqBody));
     }
 
     console.log("submitted");
