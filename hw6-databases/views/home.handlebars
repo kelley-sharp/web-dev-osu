@@ -1,0 +1,68 @@
+<div class="container">
+  <h1 class="text-center mt-5">Workout Logger</h1>
+  <form class="my-5 py-5">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" required="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" name="date" required="">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="weight">Weight</label>
+        <input type="number" class="form-control" name="weight" required="">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="reps">Reps</label>
+        <input type="number" class="form-control" name="reps" required="">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="unit">Unit</label>
+        <select name="unit" class="form-control" required="">
+          <option selected value="lbs">lb</option>
+          <option value="kg">kg</option>
+        </select>
+      </div>
+    </div>
+    <input type="hidden" name="workout-id" id="new-workout">
+    <div class="form-row justify-content-center mt-4">
+      <div class="form-group col-md-6">
+        <button type="submit" class="btn btn-primary btn-block">Save</button>
+      </div>
+    </div>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Reps</th>
+        <th>Weight</th>
+        <th>Date</th>
+        <th>Unit</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each workouts}}
+      <tr id="{{this.id}}">
+        <td class="name">{{this.name}}</td>
+        <td class="reps">{{this.reps}}</td>
+        <td class="weight">{{this.weight}}</td>
+        <td class="date">{{this.date}}</td>
+        <td class="unit">{{this.unit}}</td>
+        <td>
+          <button type="button" class="btn-warning edit">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn-danger delete">Delete</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
