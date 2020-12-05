@@ -39,7 +39,7 @@ app.get("/", function (req, res) {
 });
 
 // create a new workout
-app.post("/workouts", function (req, res) {
+app.post("/workouts", function (req, res, next) {
   const workout = req.body;
   pool.query(
     "INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?)",
@@ -63,7 +63,7 @@ app.post("/workouts", function (req, res) {
 });
 
 // edit a workout given the ID
-app.put("/workouts/:id", function (req, res) {
+app.put("/workouts/:id", function (req, res, next) {
   const workoutId = req.params.id;
   const workout = req.body;
   pool.query(
@@ -89,7 +89,7 @@ app.put("/workouts/:id", function (req, res) {
 });
 
 // destroy a workout given the ID
-app.delete("/workouts/:id", function (req, res) {
+app.delete("/workouts/:id", function (req, res, next) {
   const workoutId = req.params.id;
   pool.query(
     "DELETE FROM workouts WHERE id=?",
