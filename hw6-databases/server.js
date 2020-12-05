@@ -48,7 +48,7 @@ app.get("/", function (req, res, next) {
 app.post("/workouts", function (req, res, next) {
   const workout = req.body;
   pool.query(
-    "INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?)",
+    "INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (? ? ? ? ?)",
     [
       req.body.name,
       req.body.reps,
