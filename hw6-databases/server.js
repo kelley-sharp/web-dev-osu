@@ -35,8 +35,13 @@ const pool = mysql.createPool({
 // ];
 
 // rendering the single page app handlebars page
-app.get("/", function (req, res) {
-  res.render("home", { workouts });
+app.get("/", function (req, res, next) {
+  mysql.pool.query("SELECT * FROM workouts", function (err, rows, fields) {
+    if (err) {
+      res.render('home', { workouts: []})
+    }
+    res.render("home", { workouts: rows }));
+  });
 });
 
 // create a new workout
