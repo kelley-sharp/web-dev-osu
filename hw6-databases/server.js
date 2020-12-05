@@ -73,7 +73,7 @@ app.put("/workouts/:id", function (req, res, next) {
   const workoutId = req.params.id;
   const workout = req.body;
   pool.query(
-    "UPDATE workouts SET name=?, reps=?, weight=? date=? lbs=? WHERE id=? ",
+    "UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=?",
     [
       req.body.name,
       req.body.reps,
