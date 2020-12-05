@@ -40,7 +40,12 @@ app.get("/", function (req, res, next) {
     if (err) {
       res.render("home", { workouts: [] });
     }
-    res.render("home", { workouts: rows });
+    res.render("home", {
+      workouts: rows.map((workout) => ({
+        ...workout,
+        unit: workout.unit === true ? "lbs" : "kg",
+      })),
+    });
   });
 });
 
