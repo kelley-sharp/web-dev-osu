@@ -39,7 +39,7 @@ app.get("/", function (req, res) {
 // create a new workout
 app.post("/workouts", function (req, res) {
   const workout = req.body;
-  mysql.pool.query(
+  pool.query(
     "INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?)",
     [
       req.body.name,
@@ -64,7 +64,7 @@ app.post("/workouts", function (req, res) {
 app.put("/workouts/:id", function (req, res) {
   const workoutId = req.params.id;
   const workout = req.body;
-  mysql.pool.query(
+  pool.query(
     "UPDATE workouts SET name=?, reps=?, weight=? date=? lbs=? WHERE id=? ",
     [
       req.body.name,
@@ -89,7 +89,7 @@ app.put("/workouts/:id", function (req, res) {
 // destroy a workout given the ID
 app.delete("/workouts/:id", function (req, res) {
   const workoutId = req.params.id;
-  mysql.pool.query(
+  pool.query(
     "DELETE FROM workouts WHERE id=?",
     [workoutId],
     function (err, result) {
@@ -105,7 +105,7 @@ app.delete("/workouts/:id", function (req, res) {
 });
 
 app.get("/reset-table", function (req, res, next) {
-  mysql.pool.query("DROP TABLE IF EXISTS workouts", function (err) {
+  pool.query("DROP TABLE IF EXISTS workouts", function (err) {
     //replace your connection pool with the your variable containing the connection pool
     const createString =
       "CREATE TABLE workouts(" +
@@ -115,7 +115,7 @@ app.get("/reset-table", function (req, res, next) {
       "weight INT," +
       "date DATE," +
       "lbs BOOLEAN)";
-    mysql.pool.query(createString, function (err) {
+    pool.query(createString, function (err) {
       res.render("home", { workouts: [] });
     });
   });
